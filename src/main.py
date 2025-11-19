@@ -1,9 +1,18 @@
-from data_loader import DataLoader
+from pathlib import Path
+from .data_loader import DataLoader
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
 import lightgbm as lgb
 
-loader = DataLoader("sample.csv", "rule.yaml")
+# 現在のmain.pyファイルの絶対パスを取得し、そのディレクトリを基準にする
+BASE_DIR = Path(__file__).resolve().parent
+
+# YAMLファイルとCSVファイルの絶対パスを作成
+yaml_file_path = BASE_DIR / "rule.yaml"
+csv_file_path = BASE_DIR / "sample.csv"
+
+# DataLoader を初期化する際に、Pathオブジェクト（絶対パス）を渡す
+loader = DataLoader(csv_file_path, yaml_file_path)
 loader.create_table("my_table")
 df = loader.get_dataframe()
 loader.insert_data("my_table", df)
