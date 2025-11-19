@@ -109,3 +109,5 @@ if __name__ == "__main__":
         sys.exit(1)
         
     run_manual_tests()
+
+    #終わり!
