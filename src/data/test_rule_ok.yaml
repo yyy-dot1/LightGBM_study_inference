@@ -1,7 +1,7 @@
 features:
     - "ブログ更新" : int
-    - "試験勉強" : int
+    - "試験勉強" : float
     - "コーディング" : int
     - "環境構築" : int
-    - "読書" : int
+    - "読書" : float
     - "1日の幸福度" : int
